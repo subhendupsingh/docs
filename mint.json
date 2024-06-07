@@ -1,15 +1,15 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Shootmail",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "https://res.cloudinary.com/curead/image/upload/f_auto,q_100,w_512/v1713876965/Shootmail/logos/shootm-logo-with-name-dark-mode_rziumz.png",
+    "light": "https://res.cloudinary.com/curead/image/upload/c_scale,f_auto,q_auto,w_500/v1712843877/Shootmail/logos/shootm-logo-with-name_jgdq2l.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#FE6054",
+    "light": "#FEB341",
+    "dark": "#FEB341",
     "anchors": {
       "from": "#0D9373",
       "to": "#07C983"
@@ -17,35 +17,21 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "name": "Website",
+      "url": "https://shootmail.app"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://shootmail.app"
   },
   "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "name": "Support",
+      "icon": "whatsapp",
+      "url": "https://wa.link/f1zuld"
     }
   ],
   "navigation": [
@@ -53,39 +39,20 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
+        "api-keys"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Usage",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "usage/setup",
+        "usage/usage",
+        "usage/response"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "x": "https://x.com/subhendupsingh",
+    "linkedin": "https://www.linkedin.com/in/sps14"
   }
 }

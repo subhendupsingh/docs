@@ -1,0 +1,160 @@
+---
+title: 'Setup'
+description: 'Start sending beautiful emails in 5 minutes'
+---
+
+## Setting up
+
+Install the Shootmail javascript SDK
+
+<CodeGroup>
+
+```bash npm
+npm i --save shootmail
+```
+
+```bash pnpm
+pnpm add shootmail
+```
+</CodeGroup>
+
+## Initialize client
+
+```bash
+import { Shootmail, type ShootMailConfig } from "shootmail";
+
+const shootmail = new Shootmail(shootmailConfig);
+```
+
+### Shootmail Config
+This is a one time setup. These settings will be used for all the mails you send.
+
+```typescript
+const shootmailConfig: ShootMailConfig = {
+        shootmailApiKey: "shootmail-api-key",
+        providers: [
+            {
+                apiKey: "zoho-api-key",
+                provider: "zoho"
+            },
+            {
+                apiKey: "resend-api-key",
+                provider: "resend"
+            }
+        ],
+        brand: {
+            color: "#1A77F2",
+            logo: {
+                light: "https://res.cloudinary.com/curead/image/upload/c_scale,f_auto,q_auto,w_343/v1712843877/Shootmail/logos/shootm-logo-with-name_jgdq2l.png",
+                dark: "https://res.cloudinary.com/curead/image/upload/f_auto,q_auto,w_343/v1713876965/Shootmail/logos/shootm-logo-with-name-dark-mode_rziumz.png",
+                default: "https://res.cloudinary.com/curead/image/upload/c_scale,f_auto,q_auto,w_343/v1712843877/Shootmail/logos/shootm-logo-with-name_jgdq2l.png",
+            },
+            name: "Shootmail",
+            website: "https://shootmail.app",
+            support: {
+                email: "hi@shootmail.app",
+                slack: "hi@shootmail.app"
+            }
+        },
+        socialMedia: {
+            instagram: "https://shootmail.app",
+            x: "https://mystorebud1.com",
+            youTube: "https://mystorebud2.com",
+            meta: "https://mystorebud3.com",
+            linkedIn: "https://shootmail.app"
+        }
+};
+```
+
+### Config Options
+<Note>Optional fields, if skipped, will not be displayed in the mail</Note>
+
+<ParamField path="shootmailApiKey" type="string" required>
+  API key generated from Shootmail [Dashboard](https://shootmail.app/settings/api-keys)
+</ParamField>
+
+<ResponseField name="providers" type="Array" required>
+  Configure your email service here, you can conifgure more than one.
+  <Expandable title="properties">
+    <ResponseField name="provider" type="string">
+      Name of the provider like `zoho` or `resend`
+    </ResponseField>
+
+    <ResponseField name="apiKey" type="string">
+      API key generated from the provider's dashboard
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="brand" type="Object" required>
+  Configure your email service here, you can conifgure more than one.
+  <Expandable title="properties">
+        <ResponseField name="color" type="string" required>
+        Hex of your brand's primary color. This will be used to in buttons, anchor links etc.
+        </ResponseField>
+
+        <ResponseField name="logo" type="Object">
+            Your brand's logo. You can provide a single link (default) or you can provide logos for light and dark modes.
+            <Expandable title="properties">
+                <ResponseField name="default" type="string" required>
+                    Default logo that will be shown if `light` and `dark` logos are not provided
+                </ResponseField>
+
+                <ResponseField name="light" type="string">
+                    Link of logo to be displayed in light mode
+                </ResponseField>
+
+                <ResponseField name="dark" type="string">
+                    Link of logo to be displayed in dark mode
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+
+        <ParamField path="name" type="string">
+            Name of your company
+        </ParamField>
+
+        <ParamField path="website" type="string">
+            Website of your company
+        </ParamField>
+
+        <ResponseField name="support" type="Object">
+            List of your support channels
+            <Expandable title="properties">
+                <ResponseField name="email" type="string">
+                </ResponseField>
+
+                <ResponseField name="slack" type="string">
+                </ResponseField>
+
+                <ResponseField name="discord" type="string">
+                </ResponseField>
+
+                <ResponseField name="phone" type="string">
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="socialMedia" type="Object">
+  Configure your social media handles to display icons in the mail footer
+  <Expandable title="properties">
+    <ResponseField name="instagram" type="string">
+    </ResponseField>
+
+    <ResponseField name="x" type="string">
+    </ResponseField>
+    
+    <ResponseField name="youTube" type="string">
+    </ResponseField>
+
+    <ResponseField name="meta" type="string">
+    </ResponseField>
+
+    <ResponseField name="linkedin" type="string">
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+

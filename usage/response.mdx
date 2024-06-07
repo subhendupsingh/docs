@@ -1,0 +1,46 @@
+---
+title: 'Response Format'
+description: 'SDK Response format'
+---
+
+Shootmail SDK exports a response type `ShootmailResponse` that has following structure
+
+```typescript
+    type ShootmailResponse = {
+        status: number;
+        error: {
+            message: string;
+        } | null;
+        data?: any;
+    }
+```
+
+1. Status can be either `200` or `400`, depending on if the response is a success or an error.
+2. If the response is **successful**, `error` is `null`, status is `200` and the data property contains the response
+returned by the email provider.
+3. If the response has **error**, the `data` property will be null, status will be `400` and the `error` property
+will contain the error returned by the email provider.
+
+## Success Response
+
+```json
+    {
+        "data": {
+            "id": "cea768fb-cc4e-4fca-aa04-07000ee3b6bc"
+        },
+        "status": 200,
+        "error": null
+    }
+```
+
+## Error Response
+
+```json
+    {
+        "data": null,
+        "status": 400,
+        "error": {
+            "message": "The mail.mystorebud.com domain is not verified. Please, add and verify your domain on https://resend.com/domains"
+        }
+    }
+```

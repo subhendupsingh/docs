@@ -1,0 +1,77 @@
+---
+title: 'Usage'
+description: 'Method to send mail'
+---
+
+After initializing the `Shootmail` client, use `shoot` method to send mail
+```typescript
+import { Shootmail, type ShootMailConfig } from "shootmail";
+const shootmail = new Shootmail(shootmailConfig);
+shootmail.shoot(params);
+```
+
+### How to copy mail variables form playground
+<video
+  controls
+  muted
+  loop
+  playsInline
+  className="w-full aspect-video"
+  src="https://res.cloudinary.com/curead/video/upload/f_auto,q_100/v1717753586/Shootmail/videos/shootmail_playground_q0jfkv.mp4"
+></video>
+
+### Params
+
+```typescript
+const response = await shootmail.shoot({
+    templateId: "kthiazpqofgnrtm",
+    from: {
+        name: "Shootmail",
+        email: "noreply@mail.example.app"
+    },
+    provider: "resend",
+    to: [{ email: "hi@example.com" }],
+    subject: "Regarding your Shootmail subscription",
+    variables: [...]
+});
+```
+
+<ParamField path="templateId" type="string" required>
+  Template Id of the template you want to use. This can be copied from [Templates](https://shootmail.app/templates)
+</ParamField>
+
+<ParamField path="from" type="Object" required>
+  This should be the email verified with your email service
+    <Expandable title="properties">
+      <ResponseField name="email" type="string" required>
+          This should be the email verified with your email service
+      </ResponseField>
+
+      <ResponseField name="name" type="string">
+      </ResponseField>
+  </Expandable>
+</ParamField>
+
+<ParamField path="provider" type="string" required>
+    Which provider to use to send mails out of the providers configured while initializing the [Shootmail client](/setup#shootmail-config)
+</ParamField>
+
+<ResponseField name="to" type="Array" required>
+  An array of email addresses to the people you want to send the mails to.
+  <Expandable title="properties">
+      <ResponseField name="email" type="string" required>
+      </ResponseField>
+
+      <ResponseField name="name" type="string">
+      </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ParamField path="subject" type="string" required>
+    Subject of the email
+</ParamField>
+
+<ParamField path="variables" type="Array" required>
+    The variables to be passed to the template to build the email. You can copy this from the mail playground
+    and modify according to your needs. [See Video](/usage#how-to-copy-mail-variables-form-playground)
+</ParamField>
