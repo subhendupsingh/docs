@@ -39,7 +39,8 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "api-keys"
+        "api-keys",
+        "supported-providers"
       ]
     },
     {
