@@ -1,0 +1,139 @@
+---
+title: Mail
+description: 'Send mails using the REST API endpoint'
+---
+
+### Endpoint
+
+```bash POST
+https://shootmail.app/api/mail
+```
+
+### Authorization
+
+Send API key in the header, just the API key, nothing else. [Here is how to generate API Key](/api-keys)
+
+```bash
+header: {
+    'Authorization': 'shootmail-api-key',
+    'Content-Type': 'application/json'
+}
+```
+
+## Request
+
+Request body should contain the following params
+
+```json
+{
+    from: { email: "hi@example.com" },
+    provider: "resend", // or "zoho", "sendgrid", "postmark"
+    apiKey: "mail-provider-api-key", //example: resend API key
+    subject: "Shootmail is awesome!",
+    templateId: "kthiazpqofgnrtm",
+    to: [
+        {
+            email: "hi@example.com"    
+        }
+    ],
+    bcc: "abc@example.com", //optional: can be string or string[]
+    cc: "abc@example.com", //optional: can be string or string[]
+    preHeader: "Shootmail is awesome!"
+    params: {
+        brand: {...},
+        socialMedia: {...},
+        variables: [{...}]
+    }
+}
+```
+
+### Sample request body
+
+```json
+{
+   "apiKey": "email-provider-api-key",
+   "templateId":"kthiazpqofgnrtm",
+   "from":{
+      "name":"Shootmail",
+      "email":"noreply@mail.shootmail.app"
+   },
+   "provider":"resend",
+   "to":[
+      {
+         "email":"sps.1431990@gmail.com"
+      }
+   ],
+   "subject":"Regarding your Shootmail subscription",
+   "params" :{
+    "brand": {
+        "color": "#F6821F",
+        "name": "ShootMail",
+        "website": "https://shootmail.app",
+        "logo": {
+            "dark": "https://res.cloudinary.com/curead/image/upload/f_auto,q_auto/v1713876965/Shootmail/logos/shootm-logo-with-name-dark-mode_rziumz.png",
+            "light": "https://res.cloudinary.com/curead/image/upload/c_scale,f_auto,q_auto,w_343/v1712843877/Shootmail/logos/shootm-logo-with-name_jgdq2l.png",
+            "default": "https://res.cloudinary.com/curead/image/upload/c_scale,f_auto,q_auto,w_343/v1712843877/Shootmail/logos/shootm-logo-with-name_jgdq2l.png"
+        },
+        "support": {
+            "email": "",
+            "phone": "973456800000",
+            "slack": "https://slack.com",
+            "discord": "https://discord.com"
+        }
+    },
+    "socialMedia": {
+        "instagram": "https://shootmail.app",
+        "x": "https://shootmail.app",
+        "youTube": "https://shootmail.app",
+        "meta": "https://shootmail.app",
+        "linkedIn": "https://shootmail.app"
+    },
+    "variables": [
+        {
+            "type": "preHeader",
+            "text": "Your discount code"
+        },
+        {
+            "type": "circleIcon",
+            "url": "https://res.cloudinary.com/curead/image/upload/f_auto/v1714753437/Shootmail/mocks/party-popper-emoji_bzpdz9.png",
+            "size": 180,
+            "bgOpacity": 20
+        },
+        {
+            "type": "heading",
+            "level": "1",
+            "text": "You are in!",
+            "align": "center"
+        },
+        {
+            "type": "text",
+            "text": "Welcome to ShootMail, we are excited to have you onboard.",
+            "align": "center"
+        },
+        {
+            "type": "alert",
+            "heading": "Your invitation code",
+            "text": "A8989NJNJNJ",
+            "align": "center"
+        },
+        {
+            "type": "text",
+            "text": "Use this code to sign up on ShootMail",
+            "align": "center"
+        },
+        {
+            "type": "cta",
+            "target": "https://shootmail.app",
+            "text": "Join Shootmail",
+            "align": "center"
+        }
+    ]
+    }
+}
+```
+
+### Response
+
+Response will contain 
+
+Check [response format](/usage/response) section.

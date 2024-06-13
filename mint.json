@@ -50,6 +50,12 @@
         "usage/usage",
         "usage/response"
       ]
+    },
+    {
+      "group": "REST API",
+      "pages": [
+        "api/mail"
+      ]
     }
   ],
   "footerSocials": {
