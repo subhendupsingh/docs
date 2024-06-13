@@ -20,11 +20,19 @@ pnpm add shootmail
 
 ## Initialize client
 
-```bash
+<CodeGroup>
+```bash esm
 import { Shootmail, type ShootMailConfig } from "shootmail";
 
 const shootmail = new Shootmail(shootmailConfig);
 ```
+
+```bash commonjs
+const { Shootmail } = require("shootmail");
+
+const shootmail = new Shootmail(shootmailConfig);
+```
+</CodeGroup>
 
 ### Shootmail Config
 This is a one time setup. These settings will be used for all the mails you send.
