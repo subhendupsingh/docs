@@ -54,7 +54,7 @@
     {
       "group": "REST API",
       "pages": [
-        "api/mail"
+        "usage/mail"
       ]
     }
   ],
