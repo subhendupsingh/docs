@@ -1,7 +1,11 @@
 ---
-title: 'Setup'
-description: 'Start sending beautiful emails in 5 minutes'
+title: 'Usage'
+description: 'Just use Shootmail templates and send mails using other email services'
 ---
+
+If you are using some other email service and are not currently willing to switch to Shootmail
+, though we highly recommend to because we are fast, safe and provide advanced analytics. You
+can use Shootmail templates and keep sending mails using any of the [supported providers](/supported-providers).
 
 ## Setting up
 
@@ -17,6 +21,7 @@ npm i --save shootmail
 pnpm add shootmail
 ```
 </CodeGroup>
+
 
 ## Initialize client
 
@@ -35,11 +40,53 @@ const shootmail = new Shootmail(shootmailConfig);
 </CodeGroup>
 
 ### Shootmail Config
-This is a one time setup. These settings will be used for all the mails you send.
+This is a one time setup. These settings will be used for all the mails you send. In this step,
+configure one or more email services you wish to use using `providers` array, like this:
+
+```json
+    providers: [
+        {
+            "provider": "zoho",
+            "apiKey": ZOHO
+        },
+        {
+            "provider": "resend",
+            "apiKey": RESEND
+        },
+        {
+            "provider": "sendgrid",
+            "apiKey": SENDGRID_KEY
+        },
+        {
+            "provider": "postmark",
+            "apiKey": POSTMARK_KEY
+        },
+    ],
+```
+
+So your comple configuration should look like:
 
 ```typescript
 const shootmailConfig: ShootMailConfig = {
         shootmailApiKey: "shootmail-api-key",
+        providers: [
+            {
+                "provider": "zoho",
+                "apiKey": ZOHO
+            },
+            {
+                "provider": "resend",
+                "apiKey": RESEND
+            },
+            {
+                "provider": "sendgrid",
+                "apiKey": SENDGRID_KEY
+            },
+            {
+                "provider": "postmark",
+                "apiKey": POSTMARK_KEY
+            },
+        ],
         brand: {
             color: "#1A77F2",
             logo: {
@@ -63,6 +110,8 @@ const shootmailConfig: ShootMailConfig = {
         }
 };
 ```
+
+That's it, now you can keep using the Shootmail SDK as mentioned in the [usage](/usage/usage) docs.
 
 ### Config Options
 <Note>Optional fields, if skipped, will not be displayed in the mail</Note>
@@ -155,5 +204,3 @@ const shootmailConfig: ShootMailConfig = {
     </ResponseField>
   </Expandable>
 </ResponseField>
-
-

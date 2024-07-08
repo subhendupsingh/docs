@@ -39,8 +39,8 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "api-keys",
-        "supported-providers"
+        "add-domain",
+        "api-keys"
       ]
     },
     {
@@ -55,6 +55,13 @@
       "group": "REST API",
       "pages": [
         "usage/mail"
+      ]
+    },
+    {
+      "group": "Other Email Providers",
+      "pages": [
+        "/supported-providers",
+        "usage/other-providers"
       ]
     }
   ],

@@ -17,10 +17,10 @@ shootmail.shoot(params);
   loop
   playsInline
   className="w-full aspect-video"
-  src="https://res.cloudinary.com/curead/video/upload/f_auto,q_100/v1717753586/Shootmail/videos/shootmail_playground_q0jfkv.mp4"
+  src="https://res.cloudinary.com/curead/video/upload/f_auto,q_auto/v1718774708/Shootmail/videos/send-mail-in-30s_gm0w9d.mp4"
 ></video>
 
-### Params
+### Send Mail
 
 ```typescript
 const response = await shootmail.shoot({
@@ -35,9 +35,14 @@ const response = await shootmail.shoot({
     variables: [...]
 });
 ```
-
+### Params
 <ParamField path="templateId" type="string" required>
   Template Id of the template you want to use. This can be copied from [Templates](https://shootmail.app/templates)
+</ParamField>
+
+<ParamField path="delay" type="number">
+  Schedule a message to some time in future. Pass delay in seconds. For example: to send after
+  7 days, `delay: 7*24*60*60`
 </ParamField>
 
 <ParamField path="from" type="Object" required>
@@ -53,7 +58,7 @@ const response = await shootmail.shoot({
 </ParamField>
 
 <ParamField path="provider" type="string" required>
-    Which provider to use to send mails out of the providers configured while initializing the [Shootmail client](/setup#shootmail-config)
+    Use `shootmail` here. If you are using some other email service, you can select that provider, [check docs](/supported-providers).
 </ParamField>
 
 <ResponseField name="to" type="Array" required>
@@ -75,3 +80,21 @@ const response = await shootmail.shoot({
     The variables to be passed to the template to build the email. You can copy this from the mail playground
     and modify according to your needs. [See Video](/usage#how-to-copy-mail-variables-form-playground)
 </ParamField>
+
+### Schedule Mail
+
+```typescript
+  const response = await shootmail.shoot({
+      delay: 60 //seconds
+      ...
+  })
+```
+Schedule a message to some time in future. Pass delay in seconds. For example: to send after 7 days, `delay: 7*24*60*60`
+
+### Undo Mail
+
+```typescript
+const response = await shootmail.undoSchedule(requestId);
+```
+
+Here `requestId` is the one received in the response of the method `shootmail.shoot()`.

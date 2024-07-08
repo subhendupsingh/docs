@@ -11,7 +11,9 @@ Shootmail SDK exports a response type `ShootmailResponse` that has following str
         error: {
             message: string;
         } | null;
-        data?: any;
+        data: {
+            requestId: string
+        }
     }
 ```
 
@@ -26,12 +28,14 @@ will contain the error returned by the email provider.
 ```json
     {
         "data": {
-            "id": "cea768fb-cc4e-4fca-aa04-07000ee3b6bc"
+            "requestId": "cea768fb-cc4e-4fca-aa04-07000ee3b6bc"
         },
         "status": 200,
         "error": null
     }
 ```
+
+Save this `requestId` somewhere, this can be used to [undo a scheduled message](/usage/usage#undo-mail).
 
 ## Error Response
 
