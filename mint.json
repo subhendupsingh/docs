@@ -54,7 +54,10 @@
     {
       "group": "REST API",
       "pages": [
-        "usage/mail"
+        "usage/mail",
+        "usage/add-domain",
+        "usage/check-domain-status",
+        "usage/delete-domain"
       ]
     },
     {

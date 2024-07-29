@@ -1,0 +1,92 @@
+---
+title: Check Domain Status
+description: 'Add and verify domains using API in bulk'
+---
+
+<a href="https://www.postman.com/subhendupsingh/workspace/shootmail/request/107113-94a2e310-8a90-47a0-93a7-6f09ff69748e?action=share&creator=107113&ctx=documentation" target="_blank">
+  <img height="32" width="128" noZoom src="https://run.pstmn.io/button.svg" />
+</a>
+
+### Endpoint
+
+```bash POST
+https://shootmail.app/api/public/domain/status
+```
+
+### Authorization
+
+Send API key in the header, just the API key, nothing else. [Here is how to generate API Key](/api-keys)
+
+```bash
+header: {
+    'Authorization': 'shootmail-api-key',
+    'Content-Type': 'application/json'
+}
+```
+
+## Request
+
+Request body should contain the following params
+
+```json
+{
+    "domains": [
+        "transact.example.com",
+        "market.example.com"
+    ]
+}
+```
+
+### Response
+
+Response format will confirm to the structure given in [response format](/usage/response) section.
+
+### 200 Response
+
+```json
+[
+    {
+        "data": {
+            "domain": "transact.example.com",
+            "status": "verified",
+            "records": [
+                {
+                    "name": "rmJLwijCtJHpOIf6xcoAR6s1MV._domainkey.transact",
+                    "type": "CNAME",
+                    "value": "rmJLwijCtJHpOIf6xcoAR6s1MV.dkim.amazonses.com",
+                    "status": "verified",
+                    "record": "rmJLwijCtJHpOIf6xcoAR6s1MV",
+                    "ttl": "Auto"
+                },
+                {
+                    "name": "3vqCHcVH5czix4Yhpm22b6pbDL._domainkey.transact",
+                    "type": "CNAME",
+                    "value": "3vqCHcVH5czix4Yhpm22b6pbDL.dkim.amazonses.com",
+                    "status": "verified",
+                    "record": "3vqCHcVH5czix4Yhpm22b6pbDL",
+                    "ttl": "Auto"
+                },
+                {
+                    "name": "elQ9vveWwVePPTHITZ5douEjPy._domainkey.transact",
+                    "type": "CNAME",
+                    "value": "elQ9vveWwVePPTHITZ5douEjPy.dkim.amazonses.com",
+                    "status": "verified",
+                    "record": "elQ9vveWwVePPTHITZ5douEjPy",
+                    "ttl": "Auto"
+                },
+                {
+                    "name": "_dmarc.transact",
+                    "record": "\"v=DMARC1; p=none;\"",
+                    "status": "pending",
+                    "ttl": "Auto",
+                    "type": "TXT",
+                    "value": "\"v=DMARC1; p=none;\""
+                }
+            ],
+            "type": "Transactional"
+        },
+        "error": null,
+        "status": 200
+    }
+]
+```

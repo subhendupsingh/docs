@@ -1,0 +1,56 @@
+---
+title: Delete Domains
+description: 'Add and verify domains using API in bulk'
+---
+
+<a href="https://www.postman.com/subhendupsingh/workspace/shootmail/request/107113-ad751834-bc09-4773-9f11-e98521fb864e?action=share&creator=107113&ctx=documentation" target="_blank">
+  <img height="32" width="128" noZoom src="https://run.pstmn.io/button.svg" />
+</a>
+
+### Endpoint
+
+```bash DELETE
+https://shootmail.app/api/public/domain
+```
+
+### Authorization
+
+Send API key in the header, just the API key, nothing else. [Here is how to generate API Key](/api-keys)
+
+```bash
+header: {
+    'Authorization': 'shootmail-api-key',
+    'Content-Type': 'application/json'
+}
+```
+
+## Request
+
+Request body should contain the following params
+
+```json
+{
+    "domains": [
+        "transact.example.com"
+    ]
+}
+```
+
+### Response
+
+Response format will confirm to the structure given in [response format](/usage/response) section.
+
+### 200 Response
+
+```json
+[
+    {
+        "data": {
+            "domain": "transact.example.com",
+            "deleted": true
+        },
+        "error": null,
+        "status": 200
+    }
+]
+```
