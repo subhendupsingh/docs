@@ -1,6 +1,7 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Shootmail",
+  "versions": ["v2", "v1"],
   "logo": {
     "dark": "https://res.cloudinary.com/curead/image/upload/f_auto,q_100,w_512/v1713876965/Shootmail/logos/shootm-logo-with-name-dark-mode_rziumz.png",
     "light": "https://res.cloudinary.com/curead/image/upload/c_scale,f_auto,q_auto,w_500/v1712843877/Shootmail/logos/shootm-logo-with-name_jgdq2l.png"
@@ -36,12 +37,30 @@
   ],
   "navigation": [
     {
+      "group": "Introduction",
+      "version": "v2",
+      "pages": [
+        "v2/overview"
+      ]
+    },
+    {
+      "group": "Get Started",
+      "version": "v2",
+      "pages": [
+        "v2/editor",
+        "v2/sdk",
+        "usage/response",
+        "/supported-providers"
+      ]
+    },
+    {
       "group": "Get Started",
       "pages": [
         "introduction",
         "add-domain",
         "api-keys"
-      ]
+      ],
+      "version": "v1"
     },
     {
       "group": "Usage",
@@ -49,7 +68,8 @@
         "usage/setup",
         "usage/usage",
         "usage/response"
-      ]
+      ],
+      "version": "v1"
     },
     {
       "group": "REST API",
@@ -58,14 +78,16 @@
         "usage/add-domain",
         "usage/check-domain-status",
         "usage/delete-domain"
-      ]
+      ],
+      "version": "v1"
     },
     {
       "group": "Other Email Providers",
       "pages": [
         "/supported-providers",
         "usage/other-providers"
-      ]
+      ],
+      "version": "v1"
     }
   ],
   "footerSocials": {

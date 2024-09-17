@@ -1,0 +1,63 @@
+---
+title: SDK
+description: 'Using Shootmail SDK'
+---
+
+## Setting up
+
+Install the Shootmail javascript SDK
+
+<CodeGroup>
+
+```bash npm
+npm i --save shootmail
+```
+
+```bash pnpm
+pnpm add shootmail
+```
+</CodeGroup>
+
+## Initialize client
+
+<CodeGroup>
+```bash esm
+import { Shootmail, type ShootMailConfig } from "shootmail";
+
+const shootmail = new Shootmail(shootmailConfig);
+```
+
+```bash commonjs
+const { Shootmail } = require("shootmail");
+
+const shootmail = new Shootmail(shootmailConfig);
+```
+</CodeGroup>
+
+### Shootmail Config
+This is a one time setup. These settings will be used for all the mails you send.
+
+```typescript
+const shootmailConfig: ShootMailConfig = {
+    shootmailApiKey: "shootmail-api-key"
+};
+```
+
+## Sending Mail
+
+```typescript
+const response = await shootmail.shoot({
+    preHeader: "Huge price drop!",
+    templateId: "sEO94SOnDhBIqvggZSS4C", // your template ID
+    from: {
+        name: "Shootmail",
+        email: "updates@mail.shootmail.app",
+    },
+    provider: "shootmail",
+    to: [{ email: "sps.1431990@gmail.com" }],
+    subject: "Shootmail price drop",
+    data: {
+        button: "Explore Now"  // custom variables
+    }
+});
+```
