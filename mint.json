@@ -54,6 +54,13 @@
       ]
     },
     {
+      "group": "REST API",
+      "version": "v2",
+      "pages": [
+        "v2/mail"
+      ]
+    },
+    {
       "group": "Get Started",
       "pages": [
         "introduction",

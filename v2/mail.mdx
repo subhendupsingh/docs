@@ -1,0 +1,58 @@
+---
+title: Mail
+description: 'Send mails using the REST API endpoint'
+---
+
+<a href="https://god.gw.postman.com/run-collection/107113-90886de7-13a6-4019-9de3-b8955cbceda7?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D107113-90886de7-13a6-4019-9de3-b8955cbceda7%26entityType%3Dcollection%26workspaceId%3D4cde4d2d-aa18-4f63-ba0a-a3b87f3fc48b" target="_blank">
+  <img height="32" width="128" noZoom src="https://run.pstmn.io/button.svg" />
+</a>
+
+### Endpoint
+
+```bash POST
+https://shootmail.app/api/mail/schedule
+```
+
+### Authorization
+
+Send API key in the header, just the API key, nothing else. [Here is how to generate API Key](/api-keys)
+
+```bash
+header: {
+    'Authorization': 'shootmail-api-key',
+    'Content-Type': 'application/json'
+}
+```
+
+## Request
+
+Request body should contain the following params
+
+```json
+{
+   "provider":"resend", // postmark, zoho, sendgrid, SES
+   "apiKey": "re_QMfxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+   "templateId":"gktffznidphwrqx",
+   "subject":"Regarding your Shootmail subscription",
+   "preHeader": "Lifetime Access to Notion-like email editor & templates -  Shootmail", // optional
+   "from":{
+      "name":"Shootmail",
+      "email":"noreply@mail.example.app"
+   },
+   "to":[
+      {
+         "email":"abc@example.com"
+      }
+   ],
+   "data": {
+     "name": "John" // custom variables - optional
+   }
+}
+```
+
+
+### Response
+
+Response will contain 
+
+Check [response format](/usage/response) section.
