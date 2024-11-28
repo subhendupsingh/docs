@@ -1,0 +1,44 @@
+---
+title: Installation
+description: 'Learn how to install Shootmail in your app.'
+---
+
+### Add npmrc file
+
+Add `.npmrc` file in the root directory of your app, with the following content
+
+```bash
+@shootmail:registry=https://registry.shootmail.app
+```
+
+### Login to Shootmail registry
+
+Run `npm login` in your terminal to login to the registry
+
+```bash
+npm login --registry https://registry.shootmail.app
+```
+
+This will prompt you to enter `username` and `password` for the Shootmail registry. This username and password will be provided to you by Shootmail.
+
+### Install Shootmail email builder in your app
+
+Run the following command in your terminal
+
+<CodeGroup>
+```bash npm
+npm install @shootmail/email-builder
+```
+
+```bash pnpm
+pnpm add @shootmail/email-builder
+```
+</CodeGroup>
+
+While doing `npm install`, you might get this message:
+```
+This modules directory was created using the following registries configuration: {"default":"https://registry.npmjs.org/"}. The current configuration is {"default":"https://registry.npmjs.org/","@shootmail":"https://registry.shootmail.app/"}. To recreate the modules directory using the new settings, run "pnpm install".
+```
+You can safely press `enter` or `Y` to proceed further. This error message notifies you that previously,
+all the dependencies were downloaded from the default npm registry, but since now, they will be downloaded
+via Shootmail's proxy, the node_modules folder needs to be re-built. This will not change anything.

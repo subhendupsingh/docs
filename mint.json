@@ -61,6 +61,26 @@
       ]
     },
     {
+      "group": "Shootmail for Apps",
+      "version": "v2",
+      "pages": [
+        "v2/shootmail-for-apps/introduction",
+        "v2/shootmail-for-apps/installation",
+        "v2/shootmail-for-apps/usage"
+      ]
+    },
+    {
+      "group": "Framework Examples",
+      "version": "v2",
+      "pages": [
+        "v2/shootmail-for-apps/frameworks/next",
+        "v2/shootmail-for-apps/frameworks/sveltekit",
+        "v2/shootmail-for-apps/frameworks/remix",
+        "v2/shootmail-for-apps/frameworks/nuxt",
+        "v2/shootmail-for-apps/frameworks/rails"
+      ]
+    },
+    {
       "group": "Get Started",
       "pages": [
         "introduction",

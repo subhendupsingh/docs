@@ -1,0 +1,83 @@
+---
+title: Sveltekit
+description: 'Integrate Shootmail in a Sveltekit app'
+---
+
+## GitHub Repository
+
+[Sveltekit Example](https://github.com/subhendupsingh/shootmail-email-builder-sveltekit)
+
+## Code
+
+```typescript
+<script lang="ts">
+    import { ShootmailEditor, MailPreview } from '@shootmail/email-builder';
+    import '@shootmail/email-builder/dist/shootmail.css';
+    import { onMount } from 'svelte';
+
+    let editor: ShootmailEditor;
+    let preview: MailPreview;
+
+    onMount(() => {
+        preview = new MailPreview({
+            closeOnOverlayClick: true
+        });
+
+        editor = new ShootmailEditor({
+            elementId: 'shootmail-editor',
+            settingsControl: true,
+            imageServiceUrl: {
+                url: 'YOUR_UPLOAD_URL',
+                token: 'YOUR_UPLOAD_TOKEN'
+            },
+            theme: {
+                borderRadius: '8',
+                padding: true,
+                light: {
+                    editorBackground: '#ffffff',
+                    editorBorder: '#e2e8f0',
+                    emailBackground: '#f8fafc'
+                },
+                dark: {
+                    editorBackground: '#1e293b', 
+                    editorBorder: '#334155',
+                    emailBackground: '#0f172a'
+                }
+            }
+        });
+    });
+
+    const sendMail = async () => {
+        const html = await editor.getHTML();
+        const formData = new FormData();
+        formData.append('html', html);
+        const result = await fetch('/api/mail', {
+            method: 'POST',
+            body: formData
+        }).then(res => res.json());
+        console.log(result);
+    };
+
+    const previewMail = async () => {
+        const html = editor.getHTML();
+        preview.setContent(html);
+        preview.show();
+    }
+</script>
+
+<div class="container flex flex-col justify-center items-center">
+    <div class="flex gap-4">
+        <button onclick={sendMail} class="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Send Mail</button>
+        <button onclick={previewMail} class="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Preview</button>
+    </div>
+    <div id="shootmail-editor"></div>
+</div>
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+</style>
+```

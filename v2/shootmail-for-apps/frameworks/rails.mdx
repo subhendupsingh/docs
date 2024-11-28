@@ -1,0 +1,62 @@
+---
+title: Rails
+description: 'Integrate Shootmail in a Rails app'
+---
+
+## GitHub Repository
+
+[Rails Example](https://github.com/subhendupsingh/shootmail-email-builder-rails)
+
+## Code
+`application.js`
+
+```ruby
+import { ShootmailEditor } from '@shootmail/email-builder';
+import '@shootmail/email-builder/dist/shootmail.css';
+
+document.addEventListener('DOMContentLoaded', () => {
+    const editor = new ShootmailEditor({
+        elementId: 'shootmail-editor',
+        imageServiceUrl: {
+            token: "YOUR_UPLOAD_TOKEN",
+            url: "YOUR_UPLOAD_URL"
+        },
+        settingsControl: true,
+        theme: {
+            borderRadius: '8',
+            padding: true,
+            light: {
+              editorBackground: '#ffffff',
+              editorBorder: '#e2e8f0',
+              emailBackground: '#f8fafc'
+            },
+            dark: {
+              editorBackground: '#1e293b', 
+              editorBorder: '#334155',
+              emailBackground: '#0f172a'
+            }
+          }
+    });
+});
+```
+
+`index.html.erb`
+
+```html
+<div class="container">
+  <h1 style="text-align: center;">Email Builder</h1>
+  <div id="shootmail-editor" style="margin: 0 auto; margin-top: 20px;"></div>
+</div>
+```
+
+`app/assets/stylesheets/email_builder.css`
+
+```css
+@import '@shootmail/email-builder/dist/shootmail.css';
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+```

@@ -1,0 +1,111 @@
+---
+title: Usage
+description: 'Learn how to use Shootmail in your app.'
+---
+
+## Import
+Import the `Shootmail` client and CSS in your app
+```typescript
+import { ShootmailEditor } from '@shootmail/email-builder';
+import '@shootmail/email-builder/dist/shootmail.css';
+```
+
+## Initialize the client
+Intialize Shootmail client. Make sure to initialize the client at a place in your code that runs
+only client side and not on the server.
+
+```typescript
+let editor = new ShootmailEditor({
+    elementId: 'shootmail-editor'
+});
+```
+
+### Declare the editor element
+Declare the editor element in your HTML. This is the element where the editor will be rendered.
+
+```html
+<div id="shootmail-editor"></div>
+```
+**Done!** This should be all you need to get started. You should now see the editor rendered in your app, ready to be used.
+
+## Configuration Options
+The following configuration options are available:
+
+```typescript
+type ShootmailEditorOptions = {
+  elementId: string;
+  imageServiceUrl?: {
+    url: string;
+    token: string;
+  },
+  theme?: ThemeSettingProps,
+  settingsControl?: boolean
+};
+```
+
+### elementId: string `(required)`
+The ID of the editor element. This is the element where the editor will be rendered.
+
+```html
+<div id="shootmail-editor"></div>
+```
+
+### imageServiceUrl: object `(optional)`
+This is optional but recommended. This is used to upload images used in the email.
+
+Currently, the only image service available is [ImageKit](https://imagekit.io), more image services coming soon.
+
+```typescript
+type ImageServiceUrl = {
+  url: string;
+  token: string;
+}
+```
+
+### theme: object `(optional)`
+Use this option to change the theme of the editor to suit your app's theme.
+
+```typescript
+theme: {
+    borderRadius: '8',
+    padding: true,
+    light: {
+        editorBackground: '#ffffff',
+        editorBorder: '#e2e8f0',
+        emailBackground: '#f8fafc'
+    },
+    dark: {
+        editorBackground: '#1e293b', 
+        editorBorder: '#334155',
+        emailBackground: '#0f172a'
+    }
+}
+```
+
+### settingsControl: boolean `(optional)`
+If `true`, this displays a settings control on the editor, to customize options like editor
+background, email background, padding, border radius, etc.
+
+```typescript
+settingsControl: true
+```
+This allows your users to completely customize how their emails look.
+
+## Email Preview
+
+Users can preview how their emails will look like on the email clients before sending them. Shootmail provides
+a built-in email preview dialog with options to preview on desktop and mobile.
+
+```typescript
+import { MailPreview } from '@shootmail/email-builder';
+
+const preview = new MailPreview({
+    closeOnOverlayClick: true
+});
+
+const previewMail = async () => {
+    const html = editor.getHTML();
+    preview.setContent(html);
+    preview.show();
+}
+```
