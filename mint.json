@@ -1,7 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Shootmail",
-  "versions": ["v2", "v1"],
   "logo": {
     "dark": "https://res.cloudinary.com/curead/image/upload/f_auto,q_100,w_512/v1713876965/Shootmail/logos/shootm-logo-with-name-dark-mode_rziumz.png",
     "light": "https://res.cloudinary.com/curead/image/upload/c_scale,f_auto,q_auto,w_500/v1712843877/Shootmail/logos/shootm-logo-with-name_jgdq2l.png"
@@ -38,14 +37,12 @@
   "navigation": [
     {
       "group": "Introduction",
-      "version": "v2",
       "pages": [
         "v2/overview"
       ]
     },
     {
       "group": "Get Started",
-      "version": "v2",
       "pages": [
         "v2/editor",
         "v2/sdk",
@@ -55,14 +52,12 @@
     },
     {
       "group": "REST API",
-      "version": "v2",
       "pages": [
         "v2/mail"
       ]
     },
     {
       "group": "Shootmail for Apps",
-      "version": "v2",
       "pages": [
         "v2/shootmail-for-apps/introduction",
         "v2/shootmail-for-apps/installation",
@@ -71,7 +66,6 @@
     },
     {
       "group": "Framework Examples",
-      "version": "v2",
       "pages": [
         "v2/shootmail-for-apps/frameworks/next",
         "v2/shootmail-for-apps/frameworks/sveltekit",
@@ -79,42 +73,6 @@
         "v2/shootmail-for-apps/frameworks/nuxt",
         "v2/shootmail-for-apps/frameworks/rails"
       ]
-    },
-    {
-      "group": "Get Started",
-      "pages": [
-        "introduction",
-        "add-domain",
-        "api-keys"
-      ],
-      "version": "v1"
-    },
-    {
-      "group": "Usage",
-      "pages": [
-        "usage/setup",
-        "usage/usage",
-        "usage/response"
-      ],
-      "version": "v1"
-    },
-    {
-      "group": "REST API",
-      "pages": [
-        "usage/mail",
-        "usage/add-domain",
-        "usage/check-domain-status",
-        "usage/delete-domain"
-      ],
-      "version": "v1"
-    },
-    {
-      "group": "Other Email Providers",
-      "pages": [
-        "/supported-providers",
-        "usage/other-providers"
-      ],
-      "version": "v1"
     }
   ],
   "footerSocials": {
