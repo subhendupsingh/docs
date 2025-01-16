@@ -38,9 +38,39 @@ const shootmail = new Shootmail(shootmailConfig);
 This is a one time setup. These settings will be used for all the mails you send.
 
 ```typescript
-const shootmailConfig: ShootMailConfig = {
-    shootmailApiKey: "shootmail-api-key"
-};
+const config: ShootMailConfig = {
+    shootmailApiKey: "shootmail-api-key",
+    providers: [
+        {
+            "provider": "zoho",
+            "apiKey": "zoho-api-key"
+        },
+        {
+            "provider": "resend",
+            "apiKey": "resend-api-key"
+        },
+        {
+            "provider": "sendgrid",
+            "apiKey": "sendgrid-api-key"
+        },
+        {
+            "provider": "postmark",
+            "apiKey": "postmark-api-key"
+        },
+        {
+            provider: "aws-ses",
+            apiKey: {
+                accessKeyId: "ses-access-key",
+                secretAccessKey: "ses-secret-key",
+                region: "ses-region" //us-east-1
+            }
+        },
+        {
+            provider: "emailit",
+            apiKey: "emailit-api-key"
+        }
+    ],
+}
 ```
 
 ## Sending Mail
@@ -53,7 +83,7 @@ const response = await shootmail.shoot({
         name: "Shootmail",
         email: "updates@mail.shootmail.app",
     },
-    provider: "shootmail",
+    provider: "resend",
     to: [{ email: "sps.1431990@gmail.com" }],
     subject: "Shootmail price drop",
     data: {
