@@ -73,6 +73,12 @@
         "v2/shootmail-for-apps/frameworks/nuxt",
         "v2/shootmail-for-apps/frameworks/rails"
       ]
+    },
+    {
+      "group": "Integrations",
+      "pages": [
+        "v2/integrations/supabase"
+      ]
     }
   ],
   "footerSocials": {

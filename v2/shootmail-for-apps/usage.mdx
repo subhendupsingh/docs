@@ -39,7 +39,9 @@ type ShootmailEditorOptions = {
     token: string;
   },
   theme?: ThemeSettingProps,
-  settingsControl?: boolean
+  settingsControl?: boolean,
+  background?: boolean,
+  branding?: BrandSettings | null
 };
 ```
 
@@ -90,6 +92,47 @@ background, email background, padding, border radius, etc.
 settingsControl: true
 ```
 This allows your users to completely customize how their emails look.
+
+### background: boolean `(optional)`
+If `true`, this offers customization of the email background color.
+
+### branding: object `(optional)`
+Use `branding` object to pass the branding details like logo, signature, social media, unsubscribe link, etc. If the `branding`
+object is passed, the slash commands in the email builder are pre-populated with the branding details. Also, the branding details
+are applied to `My Templates` and `Purchased Templates`.
+
+```typescript
+{
+  "logo": {
+    "light": "https://res.cloudinary.com/curead/image/upload/c_scale,f_auto,q_auto,w_343/v1712843877/Shootmail/logos/shootm-logo-with-name_jgdq2l.png",
+    "dark": "https://res.cloudinary.com/curead/image/upload/f_auto,q_auto,w_343/v1713876965/Shootmail/logos/shootm-logo-with-name-dark-mode_rziumz.png"
+  },
+  "socialMedia": {
+    "facebook": null,
+    "instagram": null,
+    "twitter": "https://x.com/subhendupsingh",
+    "linkedin": null,
+    "youtube": null,
+    "github": "https://github.com/subhendupsingh"
+  },
+  "brandColor": "#ffb342",
+  "unsubscribe": {
+    "text": null,
+    "link": null
+  },
+  "contact": {
+    "email": "hi@shootmail.com",
+    "phone": "+91-9999933907",
+    "address": null
+  },
+  "signature": {
+    "avatar": "https://ik.imagekit.io/storebud/shootmail/profile_SMGkeyy0v.jpg",
+    "name": "SPS",
+    "position": "Founder",
+    "company": "Shootmail"
+  }
+}
+```
 
 ## Email Preview
 
