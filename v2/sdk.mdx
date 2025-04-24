@@ -40,6 +40,11 @@ This is a one time setup. These settings will be used for all the mails you send
 ```typescript
 const config: ShootMailConfig = {
     shootmailApiKey: "shootmail-api-key",
+    // global `from` email setup to use for every mail
+    from: {
+        name: "your-name",
+        email: "your-email"
+    },
     providers: [
         {
             "provider": "zoho",
@@ -79,6 +84,7 @@ const config: ShootMailConfig = {
 const response = await shootmail.shoot({
     preHeader: "Huge price drop!",
     templateId: "sEO94SOnDhBIqvggZSS4C", // your template ID
+    // If you pass `from` email here too, it will override the global `from` email
     from: {
         name: "Shootmail",
         email: "updates@mail.shootmail.app",

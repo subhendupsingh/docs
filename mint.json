@@ -77,12 +77,13 @@
     {
       "group": "Integrations",
       "pages": [
-        "v2/integrations/supabase"
+        "v2/integrations/supabase",
+        "v2/integrations/better-auth"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/subhendupsingh",
+    "x": "https://x.com/spsbuilds",
     "linkedin": "https://www.linkedin.com/in/sps14"
   }
 }
